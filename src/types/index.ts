@@ -26,9 +26,15 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  longDescription?: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
+  images?: string[];
   featured?: boolean;
+  status: 'completed' | 'in-progress' | 'archived';
+  category: 'web' | 'desktop' | 'automation' | 'bot' | 'api';
+  year: string;
+  highlights?: string[];
 }

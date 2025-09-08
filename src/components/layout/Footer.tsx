@@ -1,4 +1,4 @@
-import { contactInfo } from '../../data/timeline';
+import { contactInfo } from '../../data/contacts';
 import './Footer.css';
 
 const Footer = () => {

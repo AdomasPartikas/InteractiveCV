@@ -1,4 +1,4 @@
-import type { TimelineEvent, ContactInfo } from '../types';
+import type { TimelineEvent } from '../types';
 
 export const timelineData: TimelineEvent[] = [
   {
@@ -125,17 +125,10 @@ export const timelineData: TimelineEvent[] = [
     details: [
       'Learned to design, program, and test complex software systems',
       'Applied both sequential and parallel algorithms',
-      'Worked with advanced programming languages and frameworks',
+      'Worked with advanced programming languages and frameworks (C#, Java, SQL, Python, C++)',
       'Ensured software quality and wrote technical documentation',
       'Developed strong teamwork and IT project management skills'
     ],
     category: 'achievement'
   }
 ];
-
-export const contactInfo: ContactInfo = {
-  email: 'your.email@example.com', // Replace with actual email
-  linkedin: 'https://linkedin.com/in/patrikas-adomaitis', // Replace with actual LinkedIn
-  github: 'https://github.com/patrikas-adomaitis', // Replace with actual GitHub
-  location: 'Vilnius, Lithuania'
-};
