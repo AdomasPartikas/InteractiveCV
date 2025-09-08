@@ -90,7 +90,9 @@ const Home = () => {
                   <span className="terminal__prompt">$</span>
                   <span className="terminal__command">docker-compose "future" up -d --build</span>
                 </div>
-                <div className="terminal__output">Building the future with C#</div>
+                <div className="terminal__output">Creating...</div>
+                <div className="terminal__output">Building...</div>
+                <div className="terminal__output-colored">✓ future started ...</div>
                 <div className="terminal__line">
                   <span className="terminal__prompt">$</span>
                   <span className="terminal__cursor">_</span>

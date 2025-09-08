@@ -208,6 +208,12 @@
   margin-left: var(--spacing-lg);
 }
 
+.terminal__output-colored {
+  color: var(--color-text-green);
+  margin-bottom: var(--spacing-sm);
+  margin-left: var(--spacing-lg);
+}
+
 .terminal__cursor {
   color: var(--color-accent);
   animation: blink 1s infinite;
