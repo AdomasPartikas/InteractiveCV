@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Timeline from './pages/Timeline';
 import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 import './styles/globals.css';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="timeline" element={<Timeline />} />
           <Route path="projects" element={<Projects />} />
-          <Route path="contact" element={<div>Contact Page - Coming Soon</div>} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
     </Router>
