@@ -3,7 +3,7 @@ import type { TimelineEvent, ContactInfo } from '../types';
 export const timelineData: TimelineEvent[] = [
   {
     id: '1',
-    year: '2000',
+    year: '2008',
     title: 'First Computer Experience',
     subtitle: 'Age 6',
     description: 'Introduced to computers through Counter-Strike on the family PC',
@@ -16,14 +16,22 @@ export const timelineData: TimelineEvent[] = [
   },
   {
     id: '2',
-    year: '2014',
+    year: '2015',
     title: 'First PC Build',
-    subtitle: 'Age 14',
+    subtitle: 'Age 13',
     description: 'Built my first computer and developed strong interest in hardware and software',
     category: 'personal'
   },
   {
     id: '3',
+    year: '2016',
+    title: 'Started coding in High School',
+    subtitle: 'Age 14',
+    description: 'First coding experiences with C++',
+    category: 'education'
+  },
+  {
+    id: '4',
     year: '2019',
     title: 'NKKM - Year One',
     subtitle: 'Naujos Kartos Kompiuterių Mokykla',
@@ -38,7 +46,7 @@ export const timelineData: TimelineEvent[] = [
     category: 'education'
   },
   {
-    id: '4',
+    id: '5',
     year: '2020',
     title: 'Software Engineering Specialization',
     subtitle: 'NKKM - Year Two',
@@ -49,16 +57,16 @@ export const timelineData: TimelineEvent[] = [
       'Fell in love with C# and .NET ecosystem',
       'Built web scrapers for data extraction',
       'Created Discord bots for Steam player monitoring',
-      'Developed Windows Forms automation tools',
-      'Built custom system interaction tools'
+      'Developed Windows Forms automation tools (mostly scrapers)',
+      'Built custom system interaction tools (annoying tools)',
     ],
     category: 'education'
   },
   {
-    id: '5',
+    id: '6',
     year: '2021',
     title: 'High School Graduation',
-    subtitle: 'IT Exam Excellence',
+    subtitle: 'IT Exam',
     description: 'Scored 92/100 on IT exam, reflecting programming enthusiasm',
     details: [
       'C# experience improved C++ skills through cross-language learning',
@@ -68,28 +76,30 @@ export const timelineData: TimelineEvent[] = [
     category: 'achievement'
   },
   {
-    id: '6',
+    id: '7',
     year: '2021',
-    title: 'University & First Job',
+    title: 'University Enrollment',
     subtitle: 'Vilnius Tech University',
-    description: 'Started Software Engineering studies and professional career',
-    details: [
-      'Began studies at Vilnius Tech University',
-      'First job at TopoCentras',
-      'Gained real-world development experience'
-    ],
+    description: 'Started Software Engineering studies',
     category: 'education'
   },
   {
-    id: '7',
-    year: '2022',
-    title: 'Barbora',
-    subtitle: 'Career Development',
-    description: 'Continued professional growth in software development',
+    id: '8',
+    year: '2021',
+    title: 'First Job at TopoCentras',
+    description: 'Gained initial professional experience',
     category: 'work'
   },
   {
-    id: '8',
+    id: '9',
+    year: '2022',
+    title: 'Barbora',
+    subtitle: 'Career Development',
+    description: 'Continued professional growth',
+    category: 'work'
+  },
+  {
+    id: '10',
     year: '2023',
     title: 'Danske Bank',
     subtitle: 'Full Stack Mainframe Engineer (Student)',
@@ -105,6 +115,21 @@ export const timelineData: TimelineEvent[] = [
       'Confirmed passion for backend engineering'
     ],
     category: 'work'
+  },
+  {
+    id: '11',
+    year: '2025',
+    title: 'University Graduation',
+    subtitle: 'Vilnius Tech University',
+    description: 'Gained a bachelor\'s degree in Software Engineering',
+    details: [
+      'Learned to design, program, and test complex software systems',
+      'Applied both sequential and parallel algorithms',
+      'Worked with advanced programming languages and frameworks',
+      'Ensured software quality and wrote technical documentation',
+      'Developed strong teamwork and IT project management skills'
+    ],
+    category: 'achievement'
   }
 ];
 

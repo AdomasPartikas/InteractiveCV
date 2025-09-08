@@ -1,0 +1,37 @@
+.timeline-card-wrapper {
+  position: relative;
+  margin-bottom: var(--spacing-3xl);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.timeline-card--left {
+  justify-content: flex-end;
+  padding-right: calc(50% + var(--spacing-xl));
+}
+
+.timeline-card--right {
+  justify-content: flex-start;
+  padding-left: calc(50% + var(--spacing-xl));
+}
+
+.timeline-card-content {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .timeline-card--left,
+  .timeline-card--right {
+    justify-content: flex-start;
+    padding-left: 80px;
+    padding-right: 0;
+  }
+
+  .timeline-card-content {
+    max-width: none;
+  }
+}
