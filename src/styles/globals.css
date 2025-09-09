@@ -173,6 +173,16 @@ pre {
   font-family: var(--font-mono);
 }
 
+.invisible-text {
+  color: transparent;
+  user-select: none;
+}
+
+.invisible-selectable-text {
+  color: transparent;
+  user-select: text;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

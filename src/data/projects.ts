@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
     title: 'YouTrade - Trading Simulation Platform',
     description: 'A trading simulation platform for practicing stock trading with virtual currency',
     longDescription: 'YouTrade is a web application that simulates stock trading, allowing users to practice trading strategies using virtual currency. The platform provides real-time stock data, portfolio management, and performance tracking. The project was developed as part of my studies and is no longer actively maintained or deployed.',
-    technologies: ['C#', '.NET Core', 'React', 'Docker', 'Azure', 'NSwag', 'MySQL', 'Entity Framework Core', 'JWT Authentication', 'Serilog'],
+    technologies: ['C#', '.NET Core', 'React', 'Docker', 'NSwag', 'MySQL', 'Entity Framework Core', 'JWT Authentication', 'Serilog'],
     githubUrl: 'https://github.com/AdomasPartikas/MarketDataDomain',
     images: [
         '/images/projects/youtrade-mainpage.png',

@@ -48,6 +48,8 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               Passionate about building robust backend systems with the .NET framework.
+
+              <p className="invisible-selectable-text">And pizza. Maybe coffee too.</p>
             </motion.p>
             
             <motion.div
@@ -96,6 +98,7 @@ const Home = () => {
                 <div className="terminal__line">
                   <span className="terminal__prompt">$</span>
                   <span className="terminal__cursor">_</span>
+                  <span className="invisible-selectable-text">unexpected '{"}"}' in line 32</span>
                 </div>
               </div>
             </div>

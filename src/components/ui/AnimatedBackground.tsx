@@ -25,7 +25,12 @@ const FALLING_WORDS = [
   
   // Technologies
   'C#', 'ASP.NET', '.Net', 'React', 'TypeScript', 'Node.js', 'Express', 'GraphQL', 'MongoDB', 'PostgreSQL',
-  'Git', 'GitHub', 'VS Code', 'Swagger', 'Postman', 'Kubernetes', 'Jenkins'
+  'Git', 'GitHub', 'VS Code', 'Swagger', 'Postman', 'Kubernetes', 'Jenkins',
+
+  // Fun
+  'Stack-Overflow', 'Hello World(print)', 'define true = false', 'NaN', 'undefined', 'NullReferenceException',
+  'Coffee', 'ChatGPT fix this', 'Thread.Sleep(1000)', '\"Works locally\"', '\"What tests?\"',
+  'sudo rm -rf /', 'unexpected \'}\' on line 32', 'Easter eggs?'
 ];
 
 const AnimatedBackground: React.FC = () => {
