@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import type { Project } from '../../types';
 import './ProjectCard.css';
 
@@ -11,6 +12,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const images = project.images || [];
 
   const nextImage = () => {
@@ -20,6 +22,41 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const previousImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
+
+  const openImageModal = () => {
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  const nextImageInModal = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const previousImageInModal = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    if (isImageModalOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden'; // Prevent body scroll
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isImageModalOpen]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -40,14 +77,15 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   };
 
   return (
-    <motion.div
-      className={`project-card ${isExpanded ? 'project-card--expanded' : ''}`}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-      whileHover={{ y: -5 }}
-    >
+    <>
+      <motion.div
+        className={`project-card ${isExpanded ? 'project-card--expanded' : ''}`}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, delay: index * 0.2 }}
+        whileHover={{ y: -5 }}
+      >
       {/* Image Section */}
       <div className="project-card__image-section">
         {images.length > 0 && (
@@ -56,6 +94,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               src={images[currentImageIndex]}
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
               className="project-card__image"
+              onClick={openImageModal}
               onError={(e) => {
                 // Fallback to placeholder if image fails to load
                 e.currentTarget.src = `https://via.placeholder.com/400x250/2a2a2a/a0a0a0?text=${encodeURIComponent(project.title)}`;
@@ -196,7 +235,84 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           {isExpanded ? 'Less Details' : 'More Details'}
         </button>
       </div>
-    </motion.div>
+      </motion.div>
+
+      {/* Image Modal - Rendered using Portal */}
+      {isImageModalOpen && createPortal(
+        <motion.div
+          className="image-modal-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeImageModal}
+        >
+          <motion.div
+            className="image-modal-content"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="image-modal-close"
+              onClick={closeImageModal}
+              aria-label="Close image modal"
+            >
+              ✕
+            </button>
+
+            <div className="image-modal-image-container">
+              <img
+                src={images[currentImageIndex]}
+                alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                className="image-modal-image"
+              />
+
+              {images.length > 1 && (
+                <>
+                  <button
+                    className="image-modal-nav image-modal-nav--prev"
+                    onClick={previousImageInModal}
+                    aria-label="Previous image"
+                  >
+                    <span>‹</span>
+                  </button>
+                  <button
+                    className="image-modal-nav image-modal-nav--next"
+                    onClick={nextImageInModal}
+                    aria-label="Next image"
+                  >
+                    <span>›</span>
+                  </button>
+
+                  <div className="image-modal-indicators">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`image-modal-indicator ${
+                          index === currentImageIndex ? 'active' : ''
+                        }`}
+                        onClick={() => setCurrentImageIndex(index)}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="image-modal-info">
+              <h3 className="image-modal-title">{project.title}</h3>
+              <p className="image-modal-counter">
+                {currentImageIndex + 1} of {images.length}
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>,
+        document.body
+      )}
+    </>
   );
 };
 
