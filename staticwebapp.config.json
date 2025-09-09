@@ -1,15 +1,39 @@
 {
   "routes": [
     {
+      "route": "/assets/*.js",
+      "headers": {
+        "Content-Type": "text/javascript"
+      }
+    },
+    {
+      "route": "/assets/*.css",
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "route": "/assets/*.mjs",
+      "headers": {
+        "Content-Type": "text/javascript"
+      }
+    },
+    {
       "route": "*.js",
       "headers": {
         "Content-Type": "text/javascript"
       }
     },
     {
-      "route": "/assets/*.js",
+      "route": "*.mjs",
       "headers": {
         "Content-Type": "text/javascript"
+      }
+    },
+    {
+      "route": "*.css",
+      "headers": {
+        "Content-Type": "text/css"
       }
     },
     {
@@ -19,7 +43,8 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/assets/*", "/images/*", "*.{css,js,mjs,json,woff,woff2,eot,ttf,otf,png,jpg,jpeg,gif,svg,ico}"]
   },
   "mimeTypes": {
     ".js": "text/javascript",
