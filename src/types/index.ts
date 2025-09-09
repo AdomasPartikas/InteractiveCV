@@ -34,7 +34,7 @@ export interface Project {
   images?: string[];
   featured?: boolean;
   status: 'completed' | 'in-progress' | 'archived';
-  category: 'web' | 'desktop' | 'automation' | 'bot' | 'api';
+  category: 'web' | 'desktop' | 'automation' | 'bot' | 'api' | 'videogame';
   year: string;
   highlights?: string[];
 }

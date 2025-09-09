@@ -10,6 +10,19 @@
   position: relative;
 }
 
+/* Hide image section when expanded with smooth transition */
+.project-card--expanded .project-card__image-section {
+  flex: 0 0 0%;
+  min-width: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* When image is hidden, content takes full width */
+.project-card--expanded .project-card__content {
+  flex: 1;
+}
+
 .project-card:hover {
   border-color: var(--color-border-light);
   box-shadow: var(--shadow-lg);
@@ -17,10 +30,12 @@
 
 /* Image Section - Better proportions for wide images */
 .project-card__image-section {
-  flex: 0 0 40%; /* Increased from 33.333% to better accommodate wide images */
+  flex: 0 0 40%;
   position: relative;
   background: var(--color-bg-tertiary);
   min-height: 300px;
+  transition: all var(--transition-normal);
+  opacity: 1;
 }
 
 .project-card__image-container {

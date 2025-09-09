@@ -10,7 +10,8 @@ export const projectsData: Project[] = [
     githubUrl: 'https://github.com/AdomasPartikas/Invaise.BusinessDomain',
     images: [
         '/images/projects/invaise-mainpage.png',
-        '/images/projects/invaise-portfolio.png'
+        '/images/projects/invaise-portfolio.png',
+        '/images/projects/invaise-adminpage.png'
     ],
     featured: true,
     status: 'completed',
@@ -78,6 +79,24 @@ export const projectsData: Project[] = [
         'Integration with external real estate APIs'
     ]
   },
+    {
+    id: 'rockpaperfight-videogame',
+    title: 'Rock Paper Fight - 2D Fighting Game',
+    description: 'A 2D fighting game developed using Unity, featuring multiple characters and combat mechanics',
+    longDescription: 'Rock Paper Fight is a 2D fighting game created as a personal project to explore game development using the Unity engine. The game features multiple characters, each with unique abilities and combat mechanics. To put simply it\'s a rock-paper-scissors game with a twist. The project is no longer actively maintained or deployed.',
+    technologies: ['C#', 'Unity', 'Photoshop'],
+    githubUrl: 'https://github.com/AdomasPartikas/RockPaperFight',
+    images: [
+      '/images/projects/rockpaperfight-mainmenu.png',
+      '/images/projects/rockpaperfight-howto.png',
+      '/images/projects/rockpaperfight-combat.png',
+      '/images/projects/rockpaperfight-combos.png'
+    ],
+    featured: false,
+    status: 'archived',
+    category: 'videogame',
+    year: '2022'
+  },
   {
     id: 'discord-steam-monitor',
     title: 'Vac Status Monitor Bot',
@@ -99,5 +118,5 @@ export const projectsData: Project[] = [
       'Automated Discord notifications',
       'Ban status change detection'
     ]
-  },
+  }
 ];
