@@ -41,7 +41,6 @@ const Contact = () => {
   const copyToClipboard = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      // You could add a toast notification here if desired
       console.log(`${label} copied to clipboard`);
     } catch (err) {
       console.error('Failed to copy: ', err);
