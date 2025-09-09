@@ -1,0 +1,135 @@
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: var(--z-background);
+  overflow: hidden;
+}
+
+.falling-item {
+  position: absolute;
+  left: var(--x-position);
+  top: -50px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size);
+  color: var(--color-text-secondary);
+  opacity: var(--opacity);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  animation: fall linear var(--fall-duration) var(--delay) infinite;
+  transform: translateX(-50%);
+}
+
+.falling-item:nth-child(odd) {
+  animation-name: fall-with-sway-left;
+}
+
+.falling-item:nth-child(even) {
+  animation-name: fall-with-sway-right;
+}
+
+.falling-item:nth-child(3n) {
+  animation-name: fall-straight;
+}
+
+@keyframes fall-straight {
+  0% {
+    transform: translateY(-50px) translateX(-50%);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--opacity);
+  }
+  90% {
+    opacity: var(--opacity);
+  }
+  100% {
+    transform: translateY(calc(100vh + 50px)) translateX(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-with-sway-left {
+  0% {
+    transform: translateY(-50px) translateX(-50%);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--opacity);
+  }
+  25% {
+    transform: translateY(25vh) translateX(-60%);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-40%);
+  }
+  75% {
+    transform: translateY(75vh) translateX(-60%);
+  }
+  90% {
+    opacity: var(--opacity);
+  }
+  100% {
+    transform: translateY(calc(100vh + 50px)) translateX(-50%);
+    opacity: 0;
+  }
+}
+
+@keyframes fall-with-sway-right {
+  0% {
+    transform: translateY(-50px) translateX(-50%);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--opacity);
+  }
+  25% {
+    transform: translateY(25vh) translateX(-40%);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-60%);
+  }
+  75% {
+    transform: translateY(75vh) translateX(-40%);
+  }
+  90% {
+    opacity: var(--opacity);
+  }
+  100% {
+    transform: translateY(calc(100vh + 50px)) translateX(-50%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .falling-item {
+    font-size: calc(var(--font-size) * 0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .falling-item {
+    font-size: calc(var(--font-size) * 0.6);
+  }
+  
+  .animated-background {
+    backdrop-filter: blur(0.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-item {
+    animation-duration: 20s !important;
+    opacity: calc(var(--opacity) * 0.5) !important;
+  }
+}
+
+@media (max-width: 480px) and (max-height: 800px) {
+  .animated-background {
+    display: none;
+  }
+}
