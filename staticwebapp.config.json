@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "route": "*.js",
+      "headers": {
+        "Content-Type": "text/javascript"
+      }
+    },
+    {
+      "route": "/assets/*.js",
+      "headers": {
+        "Content-Type": "text/javascript"
+      }
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "mimeTypes": {
+    ".js": "text/javascript",
+    ".css": "text/css",
+    ".json": "application/json"
+  }
+}
