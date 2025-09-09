@@ -118,6 +118,15 @@ a:hover {
   color: var(--color-accent-hover);
 }
 
+/* Utility Classes */
+.text-accent {
+  color: var(--color-accent) !important;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
 /* Code styles */
 code {
   font-family: var(--font-mono);

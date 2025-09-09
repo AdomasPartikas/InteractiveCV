@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { projectsData } from '../data/projects';
 import { contactInfo } from '../data/contacts';
 import ProjectCard from '../components/ui/ProjectCard';
+import PageHeader from '../components/ui/PageHeader';
 import './Projects.css';
 
 const Projects = () => {
@@ -11,19 +12,10 @@ const Projects = () => {
   return (
     <div className="projects-page">
       <div className="container">
-        <motion.header
-          className="projects-header"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="projects-title">
-            <span className="font-mono text-accent">$</span> My Projects
-          </h1>
-          <p className="projects-subtitle">
-            A showcase of applications I've built throughout my journey
-          </p>
-        </motion.header>
+        <PageHeader 
+          title="My Projects"
+          subtitle="A showcase of applications I've built throughout my journey"
+        />
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (

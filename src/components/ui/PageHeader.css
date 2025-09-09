@@ -1,0 +1,31 @@
+.page-header {
+  text-align: center;
+  padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+}
+
+.page-header__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-header__subtitle {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: var(--color-text-secondary);
+  max-width: auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .page-header__title {
+    margin-bottom: var(--spacing-sm);
+  }
+}

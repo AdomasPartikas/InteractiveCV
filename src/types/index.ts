@@ -38,3 +38,13 @@ export interface Project {
   year: string;
   highlights?: string[];
 }
+
+// Animation types
+export interface AnimationProps {
+  initial?: object;
+  animate?: object;
+  whileInView?: object;
+  viewport?: object;
+  transition?: object;
+  delay?: number;
+}

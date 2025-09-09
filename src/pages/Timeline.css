@@ -4,34 +4,6 @@
   background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
 }
 
-.timeline-header {
-  text-align: center;
-  padding: var(--spacing-3xl) 0 var(--spacing-2xl);
-}
-
-.timeline-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
-  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-accent {
-  color: var(--color-accent) !important;
-  -webkit-text-fill-color: var(--color-accent) !important;
-}
-
-.timeline-subtitle {
-  font-size: 1.25rem;
-  color: var(--color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
 .timeline-container {
   position: relative;
   max-width: 1000px;

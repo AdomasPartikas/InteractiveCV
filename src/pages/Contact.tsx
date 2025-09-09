@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { contactInfo } from '../data/contacts';
+import PageHeader from '../components/ui/PageHeader';
 import './Contact.css';
 
 const Contact = () => {
@@ -50,19 +51,10 @@ const Contact = () => {
   return (
     <div className="contact-page">
       <div className="container">
-        <motion.header
-          className="contact-header"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="contact-title">
-            <span className="font-mono text-accent">$</span> Get In Touch
-          </h1>
-          <p className="contact-subtitle">
-            Let's connect and discuss opportunities or collaborations
-          </p>
-        </motion.header>
+        <PageHeader 
+          title="Get In Touch"
+          subtitle="Let's connect and discuss opportunities or collaborations"
+        />
 
         <div className="contact-content">
           <motion.div

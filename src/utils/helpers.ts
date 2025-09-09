@@ -11,7 +11,7 @@ export const cn = (...classes: (string | undefined | null | boolean)[]): string 
 /**
  * Debounce function for performance optimization
  */
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
   func: T,
   delay: number
 ): ((...args: Parameters<T>) => void) => {
@@ -19,7 +19,7 @@ export const debounce = <T extends (...args: any[]) => any>(
   
   return (...args: Parameters<T>) => {
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func.apply(null, args), delay);
+    timeoutId = setTimeout(() => func(...args), delay);
   };
 };
 
@@ -50,13 +50,6 @@ export const isInViewport = (element: HTMLElement): boolean => {
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
-};
-
-/**
- * Format year for display
- */
-export const formatYear = (year: string): string => {
-  return year;
 };
 
 /**

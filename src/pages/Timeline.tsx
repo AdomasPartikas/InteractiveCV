@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { timelineData } from '../data/timeline';
 import { getCategoryColor } from '../utils/helpers';
+import PageHeader from '../components/ui/PageHeader';
 import './Timeline.css';
 
 const Timeline = () => {
@@ -14,19 +15,10 @@ const Timeline = () => {
   return (
     <div className="timeline-page">
       <div className="container">
-        <motion.header
-          className="timeline-header"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="timeline-title">
-            <span className="font-mono text-accent">$</span> My Journey
-          </h1>
-          <p className="timeline-subtitle">
-            From first computer experience to professional C# developer
-          </p>
-        </motion.header>
+        <PageHeader 
+          title="My Journey"
+          subtitle="From first computer experience to professional C# developer"
+        />
 
         <div className="timeline-container">
           <div className="timeline-line"></div>
