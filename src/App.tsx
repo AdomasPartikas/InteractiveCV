@@ -35,6 +35,8 @@ function App() {
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
     if (measurementId) {
       initGA(measurementId);
+    } else {
+      console.warn('Google Analytics Measurement ID not found');
     }
   }, []);
 
