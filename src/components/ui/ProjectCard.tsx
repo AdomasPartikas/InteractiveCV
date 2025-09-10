@@ -13,7 +13,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const images = project.images || [];
+
+  useEffect(() => {
+    // Set loaded state after component mounts to trigger initial animations
+    const timer = setTimeout(() => setHasLoaded(true), 200 + index * 100);
+    return () => clearTimeout(timer);
+  }, [index]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -81,9 +88,10 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <motion.div
         className={`project-card ${isExpanded ? 'project-card--expanded' : ''}`}
         initial={{ opacity: 0, y: 50 }}
+        animate={hasLoaded && index < 3 ? { opacity: 1, y: 0 } : undefined}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, delay: index * 0.2 }}
+        viewport={{ once: true, margin: "0px", amount: 0.2 }}
+        transition={{ duration: 0.6, delay: hasLoaded && index < 3 ? index * 0.15 : 0 }}
         whileHover={{ y: -5 }}
       >
       {/* Image Section */}

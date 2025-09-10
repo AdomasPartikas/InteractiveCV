@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { timelineData } from '../data/timeline';
 import { getCategoryColor } from '../utils/helpers';
@@ -7,6 +7,13 @@ import './Timeline.css';
 
 const Timeline = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set loaded state after component mounts to trigger initial animations
+    const timer = setTimeout(() => setHasLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleExpanded = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
@@ -28,9 +35,10 @@ const Timeline = () => {
               key={event.id}
               className={`timeline-item ${index % 2 === 0 ? 'timeline-item--left' : 'timeline-item--right'}`}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              animate={hasLoaded && index < 2 ? { opacity: 1, x: 0 } : undefined}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "0px", amount: 0.3 }}
+              transition={{ duration: 0.6, delay: hasLoaded && index < 2 ? index * 0.15 : 0 }}
             >
               <div className="timeline-content">
                 <div 
@@ -107,7 +115,7 @@ const Timeline = () => {
           className="timeline-footer"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
         >
           <p className="timeline-footer-text">
