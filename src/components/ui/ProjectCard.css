@@ -369,22 +369,31 @@
   
   .project-card__content {
     padding: var(--spacing-md);
-    padding-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-3xl);
   }
   
   .project-card__title {
     font-size: 1.2rem;
   }
   
+  .project-card__actions {
+    margin-bottom: var(--spacing-lg);
+  }
+  
   .project-card__expand-btn {
-    bottom: var(--spacing-sm);
+    bottom: var(--spacing-md);
+  }
+
+  /* Completely hide image section in tablet/mobile when expanded */
+  .project-card--expanded .project-card__image-section {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
   .project-card__content {
     padding: var(--spacing-sm);
-    padding-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-3xl);
     gap: var(--spacing-sm);
   }
   
@@ -395,6 +404,7 @@
   .project-card__actions {
     flex-direction: column;
     gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
   }
   
   .project-card__btn {
@@ -407,8 +417,16 @@
   }
   
   .project-card__expand-btn {
-    font-size: 0.8rem;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    padding: var(--spacing-md) var(--spacing-lg);
+    min-height: 44px;
+    border-radius: var(--radius-lg);
+    bottom: var(--spacing-md);
+  }
+
+  /* Completely hide image section in mobile when expanded */
+  .project-card--expanded .project-card__image-section {
+    display: none;
   }
 }
 
@@ -419,6 +437,26 @@
   
   .project-card__title {
     font-size: 1.1rem;
+  }
+
+  .project-card__content {
+    padding-bottom: var(--spacing-4xl);
+  }
+
+  .project-card__actions {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .project-card__expand-btn {
+    font-size: 0.9rem;
+    padding: var(--spacing-md) var(--spacing-lg);
+    min-height: 44px;
+    bottom: var(--spacing-md);
+  }
+
+  /* Ensure image section is completely hidden when expanded */
+  .project-card--expanded .project-card__image-section {
+    display: none;
   }
 }
 

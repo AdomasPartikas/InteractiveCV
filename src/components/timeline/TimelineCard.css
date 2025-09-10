@@ -27,11 +27,19 @@
   .timeline-card--left,
   .timeline-card--right {
     justify-content: flex-start;
-    padding-left: 80px;
+    padding-left: 90px;
     padding-right: 0;
   }
 
   .timeline-card-content {
     max-width: none;
+    position: relative;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-card--left,
+  .timeline-card--right {
+    padding-left: 75px;
   }
 }

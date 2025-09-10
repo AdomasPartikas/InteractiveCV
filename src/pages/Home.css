@@ -276,11 +276,16 @@
 
   .hero__visual {
     margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
   }
 
   .hero__actions {
     justify-content: center;
     margin-bottom: var(--spacing-xl);
+  }
+
+  .skills-preview {
+    padding-top: var(--spacing-4xl);
   }
 
   .btn {
@@ -311,5 +316,13 @@
     width: 100%;
     max-width: 280px;
     justify-content: center;
+  }
+
+  .terminal {
+    max-width: 320px;
+  }
+
+  .hero__visual {
+    margin-bottom: var(--spacing-4xl);
   }
 }
