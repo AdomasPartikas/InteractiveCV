@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import type { Project } from '../../types';
+import { trackProjectView, trackEvent } from '../../utils/analytics';
 import './ProjectCard.css';
 
 interface ProjectCardProps {
@@ -30,8 +31,30 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const toggleExpanded = () => {
+    const newExpandedState = !isExpanded;
+    setIsExpanded(newExpandedState);
+    
+    // Track project interaction
+    if (newExpandedState) {
+      trackProjectView(project.title);
+      trackEvent('project_expand', {
+        project_name: project.title,
+        event_category: 'Portfolio',
+        event_label: `${project.title} - Expanded`
+      });
+    }
+  };
+
   const openImageModal = () => {
     setIsImageModalOpen(true);
+    
+    // Track image view
+    trackEvent('project_image_view', {
+      project_name: project.title,
+      event_category: 'Portfolio',
+      event_label: `${project.title} - Image View`
+    });
   };
 
   const closeImageModal = () => {
@@ -237,7 +260,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         {/* Expand Button */}
         <button
           className="project-card__expand-btn"
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={toggleExpanded}
           aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
         >
           {isExpanded ? 'Less Details' : 'More Details'}

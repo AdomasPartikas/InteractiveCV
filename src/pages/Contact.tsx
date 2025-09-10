@@ -1,11 +1,23 @@
 import { motion } from 'framer-motion';
 import { contactInfo } from '../data/contacts';
 import PageHeader from '../components/ui/PageHeader';
+import { trackContactInteraction, trackEvent } from '../utils/analytics';
 import './Contact.css';
 
 const Contact = () => {
   const handleEmailClick = () => {
+    trackContactInteraction('email');
     window.location.href = `mailto:${contactInfo.email}`;
+  };
+
+  const handleLinkedInClick = () => {
+    trackContactInteraction('linkedin');
+    window.open(contactInfo.linkedin, '_blank');
+  };
+
+  const handleGitHubClick = () => {
+    trackContactInteraction('github');
+    window.open(contactInfo.github, '_blank');
   };
 
   const contactItems = [
@@ -20,14 +32,14 @@ const Contact = () => {
       label: 'LinkedIn',
       value: 'LinkedIn Profile',
       icon: '💼',
-      action: () => window.open(contactInfo.linkedin, '_blank'),
+      action: handleLinkedInClick,
       copyable: false
     },
     {
       label: 'GitHub',
       value: 'GitHub Profile',
       icon: '🐙',
-      action: () => window.open(contactInfo.github, '_blank'),
+      action: handleGitHubClick,
       copyable: false
     },
     {
@@ -42,6 +54,11 @@ const Contact = () => {
   const copyToClipboard = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      trackEvent('contact_copy', {
+        contact_type: label.toLowerCase(),
+        event_category: 'Contact',
+        event_label: `${label} - Copied`
+      });
       console.log(`${label} copied to clipboard`);
     } catch (err) {
       console.error('Failed to copy: ', err);

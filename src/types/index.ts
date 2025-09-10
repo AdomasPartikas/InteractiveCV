@@ -22,6 +22,20 @@ export interface ContactInfo {
   location?: string;
 }
 
+// Google Analytics types
+export interface GAEvent {
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+}
+
+export interface GAConfig {
+  measurementId: string;
+  anonymizeIp?: boolean;
+  allowGoogleSignals?: boolean;
+}
+
 export interface Project {
   id: string;
   title: string;
