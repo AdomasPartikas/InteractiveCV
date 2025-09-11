@@ -11,7 +11,6 @@ import useGAPageView from './hooks/useGAPageView';
 import './styles/globals.css';
 
 const AppContent = () => {
-  // Track page views automatically
   useGAPageView();
 
   return (
@@ -31,12 +30,11 @@ const AppContent = () => {
 
 function App() {
   useEffect(() => {
-    // Initialize Google Analytics when app starts
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+    
     if (measurementId) {
-      initGA(measurementId);
-    } else {
-      console.warn('Google Analytics Measurement ID not found');
+      initGA(measurementId).catch(() => {
+      });
     }
   }, []);
 
