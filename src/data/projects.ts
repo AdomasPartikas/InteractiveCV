@@ -2,6 +2,24 @@ import type { Project } from '../types';
 
 export const projectsData: Project[] = [
   {
+    id: 'codefolio-web-project',
+    title: `Codefolio - Personal Documentation of My Programming Skills`,
+    description: 'A fun little programming project, to remember and test out new knowledge and skills',
+    longDescription: 'Codefolio is in very early development! Codefolio is a backend project that serves as a personal documentation of my programming skills. The project is going to be comprised of database, message queue, load balancing, authentication, CI/CD and other components. The project won\'t be deployed, but the code is available on GitHub.',
+    technologies: ['C#', '.NET 8', 'React', 'Docker', 'Kubernetes', 'RabbitMQ', 'Redis', 'NSwag', 'MySQL', 'Entity Framework Core', 'JWT Authentication', 'GitHub Actions'],
+    githubUrl: 'https://github.com/AdomasPartikas/Codefolio.API',
+    images: [
+        '/images/projects/codefolio-swagger.png'
+    ],
+    featured: true,
+    status: 'in-progress',
+    category: 'web',
+    year: '2025',
+    highlights: [
+        'Personal documentation of programming skills'
+    ]
+  },
+  {
     id: 'bachelor-project-invaise',
     title: 'Invaise - Investment Portfolio Optimization Using Artificial Intelligence',
     description: 'AI-driven investment portfolio optimization tool developed as my bachelor\'s thesis project',
