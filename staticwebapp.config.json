@@ -1,11 +1,6 @@
 {
   "routes": [
     {
-      "route": "/*",
-      "redirect": "https://www.patrikasadomaitis.lt",
-      "statusCode": 301
-    },
-    {
       "route": "/assets/*.js",
       "headers": {
         "Content-Type": "text/javascript"
