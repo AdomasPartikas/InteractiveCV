@@ -2,6 +2,31 @@ import type { Project } from '../types';
 
 export const projectsData: Project[] = [
   {
+    id: 'yamsoft-practical-task',
+    title: 'Yamsoft Practical Task - Job Application Project',
+    description: 'A web application developed as part of a job application process for Yamsoft',
+    longDescription: 'This project was created as a practical task for a job application at Yamsoft. The application is built using .NET 8 and React, featuring a clean architecture with separate layers for the API, business logic, and data access. The project focused showcase of my backend skills specifically, the frontend was implemented for demonstration purposes. It includes user authentication, CRUD operations, automatic container building with docker, database migration and seeding with mock data and a clear documentation. The code is available on GitHub.',
+    technologies: ['C#', '.NET 8', 'React', 'Docker', 'Nginx', 'xUnit', 'NSwag', 'MySQL', 'Entity Framework Core', 'JWT Authentication', 'GitHub Actions'],
+    githubUrl: 'https://github.com/AdomasPartikas/YamSoftPracticalTask',
+    images: [
+        '/images/projects/yamsoft-login.png',
+        '/images/projects/yamsoft-homepage.png',
+        '/images/projects/yamsoft-container.png'
+    ],
+    featured: true,
+    status: 'completed',
+    category: 'web',
+    year: '2025',
+    highlights: [
+        'Clean architecture with layered design',
+        'User authentication with JWT',
+        'CRUD operations with Entity Framework Core',
+        'Docker containerization',
+        'Database migration and seeding with mock data',
+        'Automated CI/CD with GitHub Actions'
+    ]
+  },
+  {
     id: 'codefolio-web-project',
     title: `Codefolio - Personal Documentation of My Programming Skills`,
     description: 'A fun little programming project, to remember and test out new knowledge and skills',
