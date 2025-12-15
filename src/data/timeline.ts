@@ -136,7 +136,7 @@ export const timelineData: TimelineEvent[] = [
     year: '2025',
     title: 'SolutionLab Production',
     subtitle: 'Mid-Level Software Developer',
-    description: 'Started working full-time as a full-stack backend engineer',
+    description: 'Started working full-time as a full-stack engineer',
     details: [
       'Creating and maintaining solutions for clients',
       'Implementing new features in C# and .NET',
