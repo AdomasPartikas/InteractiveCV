@@ -130,5 +130,19 @@ export const timelineData: TimelineEvent[] = [
       'Developed strong teamwork and IT project management skills'
     ],
     category: 'achievement'
+  },
+  {
+    id: '12',
+    year: '2025',
+    title: 'SolutionLab Production',
+    subtitle: 'Mid-Level Software Developer',
+    description: 'Started working full-time as a full-stack backend engineer',
+    details: [
+      'Creating and maintaining solutions for clients',
+      'Implementing new features in C# and .NET',
+      'Database design and optimization',
+      'Frontend integration with React, HTML, and CSS'
+    ],
+    category: 'work'
   }
 ];
